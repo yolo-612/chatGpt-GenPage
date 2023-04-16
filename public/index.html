@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>图片生成器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/main.js" defer></script>
+    <style>
+      /* 设置页面样式 */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      #header {
+        background-color: #33adff;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0px 3px 5px #888888;
+      }
+      h1 {
+        margin: 0;
+      }
+      #content {
+        padding: 20px;
+        overflow-y: scroll;
+        height: calc(100vh - 130px);
+        background-color: #fff;
+        box-shadow: 0px 3px 5px #888888;
+        border-radius: 5px;
+      }
+      #image-form {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .form-control{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      label {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      #prompt {
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #prompt:focus {
+        border: 2px solid #33adff;
+      }
+      #size {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      select {
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+      select:focus {
+        border: 2px solid #33adff;
+      }
+      #submit-btn {
+        display: block;
+        background-color: #33adff;
+        color: #fff;
+        margin: 20px auto;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #submit-btn:hover {
+        background-color: #1f8ede;
+      }
+      #result {
+        background-color: #f2f2f2;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>图片生成器</h1>
+    </div>
+    <div id="content">
+      <form id="image-form">
+        <div class="form-control">
+          <label for="input">图片特征: </label>
+          <input type="text" id="prompt" placeholder="Enter Text" />
+        </div>
+        <!-- size -->
+        <div class="form-control">
+          <label for="input">图片大小:</label>
+          <select name="size" id="size">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </div>
+        <button type="submit" id="submit-btn">提交</button>
+      </form>
+
+      <section class="image">
+        <div class="image-container">
+          <h2 class="msg"></h2>
+          <img style="max-width:100%" src="" alt="" id="image" />
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
